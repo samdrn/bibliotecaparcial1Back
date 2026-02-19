@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     {
 
         DB::table('books')->insert([
-            'title' => 'Don Quijote de la Mancha', 'Cien años de soledad',
+            'title' => 'Don Quijote de la Mancha',
             'description' => 'Aventuras de un caballero loco',
             'isbn' => '9788424115531',
             'total_copies' => 5,
