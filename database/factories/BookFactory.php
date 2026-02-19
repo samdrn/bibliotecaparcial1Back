@@ -16,8 +16,20 @@ class BookFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
-        ];
+        use Faker\Generator as Faker;
+        $factory->define(App\Book::class, function (Faker $faker) {
+            return [
+                'title' => $faker->name,
+                'description' => $faker->paragraph,
+                'isbn' => $faker->isbn13,
+                'total_copies' => $faker->numberBetween(1, 10),
+                'available_copies' => $faker->numberBetween(1, 10),
+            ];
+        });
+
+        //Crear 90 libros de ejemplo
+        for ($i = 0; $i < 90; $i++) {
+            $factory->create();
+            }
     }
 }

@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Books;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,11 +16,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        DB::table('books')->insert([
+            'title' => 'Don Quijote de la Mancha', 'Cien años de soledad',
+            'description' => 'Aventuras de un caballero loco',
+            'isbn' => '9788424115531',
+            'total_copies' => 5,
+            'available_copies' => 5,
+            'status' => 'disponible',
         ]);
+
+        // Create 90 additional books using the factory
+        //Books::factory()->count(90)->create();
     }
 }
